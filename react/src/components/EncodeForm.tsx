@@ -26,7 +26,7 @@ const EncodeForm: React.FC = ():JSX.Element => {
             },
             body: JSON.stringify({"data": encodedString})
         })
-        .then((response) => response.json())
+        .then((response:Response) => response.json())
         .then((data:Data) => {
             setFetchData(data)
         }).catch(error => console.log(error))
