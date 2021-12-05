@@ -1,0 +1,17 @@
+{
+    "plugins": ["import"],
+    "extends": ["airbnb-typescript"],
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "rules": {
+        "@typescript-eslint/quotes": ["off"],
+        "@typescript-eslint/indent": ["error", 4]
+    }
+}
+
+
+
+
+// npm add  -D prettier eslint-plugin-prettier
+// npm add -D eslint-config-prettier

@@ -1,3 +1,4 @@
+from typing import List
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.http.request import HttpRequest
@@ -18,10 +19,10 @@ def home(request: HttpRequest)-> Response:
     elif not re.search("^[a-zA-Z]+111[a-zA-Z]+111\d+$", encoded_string): # check valid encoded string with correct format using regex
         serializer = DataSerializer(Data("The passing argument needs to contain valid encoded alnumeric* characters with correct format ex: 'firstname(alphabetic)<111>lastname(alphabetic)<111>id(int)'", None))
     else:
-        split_input = encoded_string.split("111")    
-        first_name:str = split_input[0] # take first value seperated by delimeter (111) as first names
-        last_name:str = split_input[1] # take second value seperated by delimeter (111) as last name
-        id:str = ""
+        split_input:List[str] = encoded_string.split("111")    
+        first_name = split_input[0] # take first value seperated by delimeter (111) as first names
+        last_name = split_input[1] # take second value seperated by delimeter (111) as last name
+        id = ""
         if len(split_input) > 3: # if split_input length is grater than 3 that means there are more than 2 delimeters so I will assumme rest of the delimeters are the parts of id
             id = split_input[2] # take first one and then add rest of the parts including delimter
             for i in range(len(split_input)):
